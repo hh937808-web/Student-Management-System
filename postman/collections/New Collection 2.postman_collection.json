@@ -1,0 +1,229 @@
+{
+  "info": {
+    "_postman_id": "95f66e15-1247-4cae-b646-d839d7838c8c",
+    "name": "New Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "DoiTrangThai",
+      "id": "34c69ac8-4ce7-4328-821d-679a42f1efb7",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/students/10/status?status=INACTIVE",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students",
+            "10",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "INACTIVE",
+              "uuid": "aa47f1ec-223e-4ac7-adab-b708e38e54b8"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Hienthi",
+      "id": "08b7ead7-56b8-40cc-860f-8a728d36489a",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/students",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Them",
+      "id": "57820b73-fbec-48af-bfce-c47c65850c29",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"anh.nguyen234@gmail.com\",\n  \"maSV\": \"SV0041\",\n  \"ngaySinh\": 2004,\n  \"tenSV\": \"Hieu hoang van\",\n  \"status\": \"ACTIVE\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/students",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sua",
+      "id": "938c603a-42aa-4a52-848a-a9ee7be07866",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"email\": \"anh.nguyen234@gmail.com\",\r\n  \"maSV\": \"SV0032\",\r\n  \"ngaySinh\": 2004,\r\n  \"tenSV\": \"Hieu \",\r\n  \"status\": \"INACTIVE\"\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/students/15",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students",
+            "15"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Xoa",
+      "id": "3f226f96-1165-4856-9d40-f5cabe5c6eb0",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/students/14",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students",
+            "14"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Timkiem",
+      "id": "0430cc3c-8230-4b83-9ec7-d318ca9c9588",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "localhost:8080/api/students/search?keyword=Hieu",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "keyword",
+              "value": "Hieu",
+              "uuid": "3f19ec40-25ff-46c4-96e3-ceeb0c2bd889"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Status",
+      "id": "3f6c1b04-e6c3-48db-99ba-633bc6afe6e1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/students/status/ACTIVE",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "students",
+            "status",
+            "ACTIVE"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
