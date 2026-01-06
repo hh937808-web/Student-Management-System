@@ -5,7 +5,6 @@ Làm quen với Spring Boot
 Hiểu cách xây dựng REST API
 Thao tác cơ sở dữ liệu bằng Spring Data JPA
 Áp dụng Validation và Exception Handling cơ bản
-Project phù hợp cho người ôn tập kiến thức Spring Boot mức cơ bản – trung bình.
 2. Chức năng chính trong project 
 Thêm mới sinh viên
 Cập nhật thông tin sinh viên
