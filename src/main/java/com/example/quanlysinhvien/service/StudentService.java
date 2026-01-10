@@ -7,6 +7,9 @@ import com.example.quanlysinhvien.entity.StudentStatus;
 import com.example.quanlysinhvien.exception.DuplicateResourceException;
 import com.example.quanlysinhvien.repository.SinhVienRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -99,6 +102,12 @@ public class StudentService {
                 .stream()
                 .map(StudentResponse::new)
                 .toList();
+    }
+
+    //Thêm chức năng khác đề bài: Phân Trang
+    public Page<StudentResponse> phanTrang(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return repository.findAll(pageable).map(StudentResponse::new);
     }
 
 }

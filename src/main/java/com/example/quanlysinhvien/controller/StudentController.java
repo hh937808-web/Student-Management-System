@@ -7,6 +7,7 @@ import com.example.quanlysinhvien.service.StudentService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -71,5 +72,14 @@ public class StudentController {
     public List<StudentResponse> getByStatus(@PathVariable StudentStatus status) {
         return service.getByStatus(status);
     }
+    //Chức năng khác đề:
+    @GetMapping("/paging")
+    public Page<StudentResponse> phanTrang(@RequestParam(defaultValue = "0") int page,
+                                           @RequestParam(defaultValue = "5") int size) {
+
+        return service.phanTrang(page, size);
+    }
+
+
 
 }
