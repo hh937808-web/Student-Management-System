@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -104,9 +105,21 @@ public class StudentService {
                 .toList();
     }
 
-    //Thêm chức năng khác đề bài: Phân Trang
-    public Page<StudentResponse> phanTrang(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size);
+    //Thêm chức năng khác đề bài: Phân Trang và Sắp Xếp
+    public Page<StudentResponse> pageSort(int page, int size, StudentStatus status, String sort) {
+        Pageable pageable;
+        if (sort != null && !sort.trim().isEmpty()) {
+            Sort sortObj = sort.equalsIgnoreCase("desc")
+                    ? Sort.by("tenSV").descending()
+                    : Sort.by("tenSV").ascending();
+            pageable = PageRequest.of(page, size, sortObj);
+        } else {
+            pageable = PageRequest.of(page, size, Sort.by("id").ascending());
+        }
+
+        if (status != null) {
+            return repository.findByStatus(status, pageable).map(StudentResponse::new);
+        }
         return repository.findAll(pageable).map(StudentResponse::new);
     }
 

@@ -74,12 +74,13 @@ public class StudentController {
     }
     //Chức năng khác đề:
     @GetMapping("/paging")
-    public Page<StudentResponse> phanTrang(@RequestParam(defaultValue = "0") int page,
-                                           @RequestParam(defaultValue = "5") int size) {
+    public Page<StudentResponse> pageSort(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(required = false) StudentStatus status,
+            @RequestParam(required = false) String sort) {
 
-        return service.phanTrang(page, size);
+        return service.pageSort(page, size, status, sort);
     }
-
-
 
 }
