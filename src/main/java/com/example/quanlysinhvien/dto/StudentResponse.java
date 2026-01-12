@@ -1,6 +1,7 @@
 package com.example.quanlysinhvien.dto;
 
 import com.example.quanlysinhvien.entity.Student;
+import com.example.quanlysinhvien.entity.StudentStatus;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,6 +13,7 @@ public class StudentResponse {
     private String tenSV;
     private Integer ngaySinh;
     private String email;
+    private StudentStatus status;
 
     public StudentResponse(Student sv) {
         this.id = sv.getId();
@@ -19,6 +21,7 @@ public class StudentResponse {
         this.tenSV = sv.getTenSV();
         this.ngaySinh = sv.getNgaySinh();
         this.email = sv.getEmail();
+        this.status = sv.getStatus();
     }
 }
 
