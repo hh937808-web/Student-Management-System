@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SinhVienRepository extends JpaRepository<Student, Long> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
     boolean existsByMaSV(String maSV);
 
     List<Student> findByMaSVContainingOrTenSVContaining(String maSV, String tenSV);

@@ -5,7 +5,7 @@ import com.example.quanlysinhvien.dto.StudentResponse;
 import com.example.quanlysinhvien.entity.Student;
 import com.example.quanlysinhvien.entity.StudentStatus;
 import com.example.quanlysinhvien.exception.DuplicateResourceException;
-import com.example.quanlysinhvien.repository.SinhVienRepository;
+import com.example.quanlysinhvien.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -19,7 +19,7 @@ import java.util.Map;
 @Service
 public class StudentService {
     @Autowired
-    private SinhVienRepository repository;
+    private StudentRepository repository;
 
     public StudentResponse create(StudentRequest req) {
 
