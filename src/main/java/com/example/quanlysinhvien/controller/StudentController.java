@@ -53,10 +53,19 @@ public class StudentController {
 
     @GetMapping("/paging")
     public ApiResponse<Page<StudentResponse>> pageSort(
-            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "5") int size,
             @RequestParam(required = false) StudentStatus status,
-            @RequestParam(required = false) String sort) {
-        return ApiResponse.success(service.pageSort(page, size, status, sort));
+            @RequestParam(required = false) String sort
+    ) {
+        if (page < 1) {
+            throw new IllegalArgumentException("Page phải bắt đầu từ 1");
+        }
+        int pageIndex = page - 1;
+
+        return ApiResponse.success(
+                service.pageSort(pageIndex, size, status, sort)
+        );
     }
+
 }
