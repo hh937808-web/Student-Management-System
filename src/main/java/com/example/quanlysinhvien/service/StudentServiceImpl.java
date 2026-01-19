@@ -28,31 +28,56 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public StudentResponse create(StudentRequest req) {
+
         if (repository.existsByMaSV(req.getMaSV())) {
-            throw new DuplicateResourceException("Mã sinh viên " + req.getMaSV() + " đã tồn tại!");
+            throw new DuplicateResourceException(
+                    "Mã sinh viên " + req.getMaSV() + " đã tồn tại!"
+            );
         }
+
+        if (repository.existsByEmail(req.getEmail())) {
+            throw new DuplicateResourceException(
+                    "Email " + req.getEmail() + " đã tồn tại!"
+            );
+        }
+
         Student s = new Student();
         s.setMaSV(req.getMaSV());
         s.setTenSV(req.getTenSV());
         s.setNgaySinh(req.getNgaySinh());
         s.setEmail(req.getEmail());
         s.setStatus(StudentStatus.ACTIVE);
+
         return new StudentResponse(repository.save(s));
     }
 
     @Override
     public StudentResponse update(Long id, StudentRequest req) {
-        Student s = repository.findById(id)
-                .orElseThrow(() -> new DuplicateResourceException("Không tìm thấy sinh viên ID: " + id));
 
-        if (!s.getMaSV().equals(req.getMaSV()) && repository.existsByMaSV(req.getMaSV())) {
-            throw new DuplicateResourceException("Mã sinh viên mới đã tồn tại trên hệ thống!");
+        Student s = repository.findById(id)
+                .orElseThrow(() ->
+                        new DuplicateResourceException("Không tìm thấy sinh viên ID: " + id)
+                );
+
+        if (!s.getMaSV().equals(req.getMaSV())
+                && repository.existsByMaSV(req.getMaSV())) {
+            throw new DuplicateResourceException(
+                    "Mã sinh viên mới đã tồn tại trên hệ thống!"
+            );
+        }
+
+        if (!s.getEmail().equals(req.getEmail())
+                && repository.existsByEmailAndIdNot(req.getEmail(), id)) {
+            throw new DuplicateResourceException(
+                    "Email " + req.getEmail() + " đã tồn tại!"
+            );
         }
 
         s.setMaSV(req.getMaSV());
         s.setTenSV(req.getTenSV());
         s.setNgaySinh(req.getNgaySinh());
         s.setEmail(req.getEmail());
+
         return new StudentResponse(repository.save(s));
     }
 

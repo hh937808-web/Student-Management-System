@@ -42,7 +42,7 @@ public class Student {
 
     @Email(message = "Email không đúng định dạng!")
     @Size(max = 100)
-    @Column(name = "email", length = 100)
+    @Column(name = "email", length = 100, unique = true)
     private String email;
 
     @Enumerated(EnumType.STRING)

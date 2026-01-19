@@ -2,6 +2,8 @@ package com.example.quanlysinhvien.repository;
 
 import com.example.quanlysinhvien.entity.Student;
 import com.example.quanlysinhvien.entity.StudentStatus;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,6 +13,10 @@ import java.util.List;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
     boolean existsByMaSV(String maSV);
+
+    boolean existsByEmail(String email);
+
+    boolean existsByEmailAndIdNot(String email, Long id);
 
     List<Student> findByMaSVContainingOrTenSVContaining(String maSV, String tenSV);
 
